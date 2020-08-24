@@ -54,6 +54,8 @@ class GeoUriScheme
   field :y, type: Float
   field :z, type: Float
 
+  has_many :geopolitical_divisions
+
   alias_method(:longitude, :x)
   alias_method(:latitude, :y)
   alias_method(:altitude, :z)

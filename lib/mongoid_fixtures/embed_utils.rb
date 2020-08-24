@@ -17,10 +17,12 @@ module EmbedUtils
     relations = embed.relations
 
     relations.each do |name, relation|
-      if relation.relation.eql? Mongoid::Relations::Embedded::In
+
+      if relation.is_a?(Mongoid::Association::Embedded::EmbeddedIn)
         return name
       end
     end
+
     raise 'Unable to find parent class'
   end
 

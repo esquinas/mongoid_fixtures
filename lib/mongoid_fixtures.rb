@@ -18,9 +18,9 @@ module MongoidFixtures
     end
 
     def self.load
-      if Dir.exists?("#{path}")
+      if Dir.exist?("#{path}")
         load_fixtures Dir["#{path}/*.yml"]
-      elsif Dir.exists?("../#{path}")
+      elsif Dir.exist?("../#{path}")
         load_fixtures Dir["../#{path}/*.yml"]
       else
         raise('Unable to find fixtures in either /test/fixtures or ../test/fixtures')
@@ -43,7 +43,7 @@ module MongoidFixtures
       Loader.instance.path
     end
   end
-  :private
+  # :private
 
   Linguistics.use(:en)
   Loader.path = 'test/fixtures'
@@ -66,14 +66,16 @@ module MongoidFixtures
 
         # If the current value is a symbol then it represents another fixture.
         # Find it and store its id
-        if value.is_a? Symbol or value.nil?
+        if value.is_a?(Symbol) || value.nil?
           relations = instance.relations
           if relations.include? field
-            if relations[field].relation.eql? Mongoid::Relations::Referenced::In or relations[field].relation.eql? Mongoid::Relations::Referenced::One
+            # if relations[field].relation.eql? Mongoid::Relations::Referenced::In or relations[field].relation.eql? Mongoid::Relations::Referenced::One
+            if relations[field].is_a?(Mongoid::Association::Referenced::BelongsTo) || \
+               relations[field].is_a?(Mongoid::Association::Referenced::HasOne)
               instance.send("#{field}=", self.load(field_clazz)[value])
             else
               # instance[field] = self.load(field_clazz)[value].id # embedded fields?
-              raise "#{instance} relationship not defined: #{relations[field].relation}"
+              raise "#{instance} relationship not defined: #{relations[field]}"
             end
           else
             raise "Symbol (#{value.nil? ? value : 'nil'}) doesn't reference relationship"
