@@ -1,5 +1,6 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mongoid_fixtures/version'
 
@@ -13,6 +14,8 @@ Gem::Specification.new do |spec|
   spec.description   = 'Provides mechanism to easily create fixtures with Mongoid'
   spec.homepage      = 'https://github.com/nycjv321/mongoid_fixtures'
   spec.license       = 'MIT'
+
+  spec.required_ruby_version = '>= 2.0'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -31,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec'
   spec.add_dependency  'linguistics',   '~> 2.0.4'
-  spec.add_dependency  'mongoid', '~> 5.1'
+  spec.add_dependency  'mongoid', '~> 7.0'
   spec.add_dependency  'monkey_patches', '~> 0.0.3'
   spec.add_development_dependency 'bcrypt'
 end
