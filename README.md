@@ -24,8 +24,9 @@ Or install it yourself as:
 
 ### Version
 
-  Use "0.1.4" for mongoid '~> 4.0.2'
-  Use "0.2" for mongoid  '~> 5.1'
+  Use "0.1.4" for mongoid '\~> 4.0.2'
+  Use "0.2" for mongoid  '5.1.0'
+  Use "0.2.1" for mongoid  '> 5.1'
 
 
 ## Example Usage
@@ -103,7 +104,7 @@ Or install it yourself as:
 
         end
 
-2.  Defin efixtures  in /test/fixtures/ with a plural form of the class
+2.  Define fixtures  in /test/fixtures/ with a plural form of the class
 
     /test/fixtures/cities.yml:    
 
