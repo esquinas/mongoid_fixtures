@@ -3,9 +3,8 @@ Fixtures for Ruby for Mongoid. No Rails needed!
 
 [![Gem Version](https://badge.fury.io/rb/mongoid_fixtures.svg)](http://badge.fury.io/rb/mongoid_fixtures)
 [![Codacy Badge](https://api.codacy.com/project/badge/9a884363988548b9a83ae0044b6d74a1)](https://www.codacy.com/app/nycjv321/mongoid_fixtures)
-[![Code Climate](https://codeclimate.com/github/nycjv321/mongoid_fixtures/badges/gpa.svg)](https://codeclimate.com/github/nycjv321/mongoid_fixtures)
 [![Build Status](https://travis-ci.org/nycjv321/mongoid_fixtures.svg?branch=master)](https://travis-ci.org/nycjv321/mongoid_fixtures)
-[![Test Coverage](https://codeclimate.com/github/nycjv321/mongoid_fixtures/badges/coverage.svg)](https://codeclimate.com/github/nycjv321/mongoid_fixtures/coverage)
+
 
 ## Installation
 
@@ -31,7 +30,7 @@ Or install it yourself as:
 
 ## Example Usage
 
-1.  Define some Mongoid Documents. The class structure is pretty silly and only meant to demonstrate the different modes. 
+1.  Define some Mongoid Documents. The class structure is pretty silly and only meant to demonstrate the different modes.
 
         class GeopoliticalDivision
           include Mongoid::Document
@@ -107,7 +106,7 @@ Or install it yourself as:
 2.  Defin efixtures  in /test/fixtures/ with a plural form of the class
 
     /test/fixtures/cities.yml:    
-    
+
         :new_york_city:
           name: New York City
           :population:
@@ -165,7 +164,7 @@ Or install it yourself as:
           geo_uri_scheme: :terrytown
 
     /test/fixtures/states.yml:   
-        
+
         :new_york:
           name: New York
           :population:
@@ -196,13 +195,13 @@ Or install it yourself as:
           x: -74.0059
           y: 40.7127
           z: 0.6096
-            
+
 
     You may notice attributes that represent relationships are automatically converted to
     the corresponding ruby objects based on the provided id. Currently, this library supports
     1-N referenced, 1-1 referenced, 1-1 embedded relationships, and 1-N embedded relationships.
     If a relation already exists in the db, this library will return it instead of recreating it.
-    
+
 3.  Invoke `MongoidFixtures.load(City)`
 4.  The above method invocation will load all test fixture instances of City objects defined
     in /test/fixtures/cities.yml as well as dependent objects
@@ -212,7 +211,7 @@ Or install it yourself as:
         puts cities # {:new_york_city=>#<City _id: 55ebc6b2e138231068000004, name: "New York City", time_zone: nil, demonym: "New Yorker", settled: 1624, consolidated: 1989, custom_attributes: [{"boroughs"=>["Manhattan", "The Bronx", "Brooklyn", "Queens", "Staten Island"]}], geo_uri_scheme_id: BSON::ObjectId('55ebc6b2e138231068000006'), _type: "City", state_id: BSON::ObjectId('55ebc6b2e138231068000000')>, :terrytown=>#<City _id: 55ebc6b2e13823106800000c, name: "Terrytown", time_zone: nil, demonym: nil, settled: nil, consolidated: nil, custom_attributes: nil, geo_uri_scheme_id: BSON::ObjectId('55ebc6b2e138231068000005'), _type: "City", state_id: BSON::ObjectId('55ebc6b2e138231068000002')>}
 
     In the DB:
-      
+
         /* 0 */
         {
             "_id" : ObjectId("55eb4adae1382309c5000003"),
@@ -368,4 +367,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/nycjv3
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

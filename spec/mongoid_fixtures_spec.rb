@@ -1,6 +1,3 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
-
 require_relative '../lib/mongoid_fixtures'
 require 'mongoid'
 require 'rspec'
@@ -114,9 +111,9 @@ describe MongoidFixtures do
       population.msa.should eq  20092883
       population.csa.should eq  23632722
       population.source.should eq  'U.S. Census (2014)'
-      
+
       new_york_city.people.should_not be_empty
-      
+
       christopher_big_wallace = new_york_city.people[-1]
       christopher_big_wallace.first_name.should eq 'Christopher'
       christopher_big_wallace.middle_name.should eq 'George'
