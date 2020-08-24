@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/nycjv321/mongoid_fixtures'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version = '>= 2.0'
+  spec.required_ruby_version = '>= 2.5'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -30,11 +30,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec'
-  spec.add_dependency  'linguistics',   '~> 2.0.4'
-  spec.add_dependency  'mongoid', '~> 7.0'
+  spec.add_development_dependency 'bundler', '~> 2.1.4'
+  spec.add_development_dependency 'rake',    '~> 12.3'
+  spec.add_development_dependency 'rspec',   '~> 3.9.0'
+  spec.add_dependency  'linguistics',    '~> 2.0.4'
+  spec.add_dependency  'mongoid',        '~> 7.0'
   spec.add_dependency  'monkey_patches', '~> 0.0.3'
   spec.add_development_dependency 'bcrypt'
 end
